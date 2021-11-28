@@ -7,15 +7,15 @@ metadata:
 ---
 apiVersion: v1
 kind: ServiceAccount
-namespace: httpbin-demo
 metadata:
   name: httpbin-demo
+  namespace: httpbin-demo
 ---
 apiVersion: v1
 kind: Service
-namespace: httpbin-demo
 metadata:
   name: httpbin-demo
+  namespace: httpbin-demo
   labels:
     app: httpbin-demo
     service: httpbin-demo
@@ -29,9 +29,9 @@ spec:
 ---
 apiVersion: apps/v1
 kind: Deployment
-namespace: httpbin-demo
 metadata:
   name: httpbin-demo
+  namespace: httpbin-demo
 spec:
   replicas: 1
   selector:
