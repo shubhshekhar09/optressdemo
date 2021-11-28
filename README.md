@@ -40,23 +40,31 @@ shubhendu@Azure:~/optressdemo$
 Output
 
 ```bash
-shubhendu@Azure:~/optressdemo$ helm install --set "ingress.whitelistCIDR=1.1.1.2/1"opstree-demo test/opstree
-NAME: opstree-demo
-LAST DEPLOYED: Sun Nov 28 08:48:00 2021
+shubhendu@Azure:~$ helm upgrade --set "ingress.whitelistCIDR= deny" optress myrepo/opstree
+Release "optress" has been upgraded. Happy Helming!
+NAME: optress
+LAST DEPLOYED: Sun Nov 28 10:46:09 2021
 NAMESPACE: default
 STATUS: deployed
-REVISION: 1
+REVISION: 8
 TEST SUITE: None
+shubhendu@Azure:~$ curl -o /dev/null -s -w "%{http_code}\n" 52.150.48.33
+503
+shubhendu@Azure:~$ helm upgrade --set "ingress.whitelistCIDR= 1.1.1.1/1" optress myrepo/opstree
+Release "optress" has been upgraded. Happy Helming!
+NAME: optress
+LAST DEPLOYED: Sun Nov 28 10:46:32 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 9
+TEST SUITE: None
+shubhendu@Azure:~$ curl -o /dev/null -s -w "%{http_code}\n" 52.150.48.33
+200
+shubhendu@Azure:~$
 ```
-Accessing from certain ip
 
-```bash
-shubhendu@Azure:~/optressdemo$ curl -o /dev/null -s -w "%{http_code}\n" 52.150.48.33
-403
-shubhendu@Azure:~/optressdemo$
-```
 
-As you see getting 403
+As you see getting 503/ 403 (if IP range is correct)
 
 ```bash
 #for to install using kubectl
