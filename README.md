@@ -46,9 +46,32 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 ```
+Accessing from certain ip
+``bash
+shubhendu@Azure:~/optressdemo$ helm upgrade --set "ingress.whitelistCIDR=1.1.1.1" optress myrepo/opstree
+Release "optress" has been upgraded. Happy Helming!
+NAME: optress
+LAST DEPLOYED: Sun Nov 28 10:24:41 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+shubhendu@Azure:~/optressdemo$ curl -o /dev/null -s -w "%{http_code}\n" 52.150.48.33
+403
+shubhendu@Azure:~/optressdemo$
+```
+As you see getting 403
 
 ```bash
+shubhendu@Azure:~/optressdemo$ hostname -i
+10.244.74.104
+shubhendu@Azure:~/optressdemo$
+```
+Setting above hostname 
+```bash
 
+```
+```bash
 #for to install using kubectl
 #change the directory to manifest folder
 kubectl apply -f .
