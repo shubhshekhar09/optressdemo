@@ -12,6 +12,14 @@ helm install <package name>
 #for to install using kubectl
 #change the directory to manifest folder
 kubectl apply -f .
+#or 
+shubhendu@Azure:~$ kubectl apply -f https://raw.githubusercontent.com/shubhshekhar09/optressdemo/main/httpbin/manifest.yaml
+#output be like
+namespace/httpbin-demo created
+serviceaccount/httpbin-demo created
+service/httpbin-demo created
+deployment.apps/httpbin-demo created
+shubhendu@Azure:~$
 ```
 
 ## Usage
