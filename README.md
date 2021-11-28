@@ -85,9 +85,5 @@ deployment.apps/httpbin-demo created
 shubhendu@Azure:~$
 ```
 
-## Usage
 
-```bash
-curl <load_balancer_ip>:port/<API_path>
-```
 
