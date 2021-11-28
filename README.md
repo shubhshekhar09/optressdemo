@@ -16,7 +16,25 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --name
 ```
 
 ```bash
-helm install opstree-0.1.0.tgz
+helm repo add optress https://shubhshekhar09.github.io/optressdemo/
+helm repo list
+#so i want to whitelist ip CIDR 1.1.1.2/1
+helm install --set "ingress.whitelistCIDR=1.1.1.2/1" optress optress/opstree
+NAME: optress
+LAST DEPLOYED: Sun Nov 28 10:16:07 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+shubhendu@Azure:~/optressdemo$ kubectl get ingress -A
+NAMESPACE   NAME           CLASS    HOSTS   ADDRESS        PORTS   AGE
+default     httpbin-demo   <none>   *       52.150.48.33   80      78s
+
+shubhendu@Azure:~/optressdemo$ curl -o /dev/null -s -w "%{http_code}\n" 52.150.48.33
+#output
+200
+shubhendu@Azure:~/optressdemo$
 ```
 Output
 ```bash
