@@ -3,12 +3,12 @@ entries:
   opstree:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-11-28T08:06:45.461439976Z"
+    created: "2021-11-28T08:36:40.925332155Z"
     description: A Helm chart for Kubernetes
     digest: d85b5ed477420370e0ed25f1fd6c8d1b783f0af3924e07415988aea5d1488c12
     name: opstree
     type: application
     urls:
-    - https://github.com/shubhshekhar09/optressdemo/opstree-0.1.0.tgz
+    - https://shubhshekhar09.github.io/optressdemo/opstree-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-28T08:06:45.46100937Z"
+generated: "2021-11-28T08:36:40.924596343Z"
